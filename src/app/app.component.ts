@@ -1,6 +1,5 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
-import {createElement} from 'react'
-import ReactDom from 'react-dom'
+import { Component, OnInit } from '@angular/core';
+import { HelloFormComponent } from './hello-form/hello-form.component'
 
 @Component({
   selector: 'app-root',
@@ -8,11 +7,10 @@ import ReactDom from 'react-dom'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'react-in-angular-ext-angular';
+  comps = {hello: HelloFormComponent }
 
-  constructor(private el: ElementRef){}
+  constructor(){}
 
   ngOnInit(): void {
-    ReactDom.render(createElement('span', null,  'hello'), this.el.nativeElement)
   } 
 }
