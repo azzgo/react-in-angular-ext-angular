@@ -7,7 +7,7 @@ export default function RenderExt({ngComps, loadComponent}) {
   }, [ngComps, ref.current])
   
   return (
-    <div style={{border: "1px blue solid"}}>
+    <div className="p-n" style={{border: "1px blue solid"}}>
       <h4>React Component</h4>
       <div ref={ref}></div>
     </div>
