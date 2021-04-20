@@ -1,27 +1,23 @@
 # ReactInAngularExtAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.8.
 
-## Development server
+## 启动
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+yarn start 看效果
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## 背景
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+假设存在一个 UI library 提供一套基于 DSL Schema 的页面编排能力, 其代码由 React 技术编写，并支持通过接受 React 组件的方式扩展其支持的组件范围。
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+现在有个需求：希望这个 UI library 能支持 Angular 应用使用，当然也希望扩展的组件也能由 Angular 来编写咯。
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+很容易想到两个方案：
 
-## Further help
+1. 换技术栈重写
+2. 加兼容适配层
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+方案的优劣不细说，本 Repo 主要用于方案2的 POC 验证
