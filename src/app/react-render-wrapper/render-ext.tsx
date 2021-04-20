@@ -4,7 +4,7 @@ export default function RenderExt({ngComps, loadComponent}) {
   const ref = React.useRef(null);
   useEffect(() => {
     loadComponent(ngComps.hello, ref.current)
-  }, [ngComps, ref.current])
+  }, [ngComps])
   
   return (
     <div className="p-n" style={{border: "1px blue solid"}}>
