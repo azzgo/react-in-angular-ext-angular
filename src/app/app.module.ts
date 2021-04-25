@@ -3,13 +3,17 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HelloFormComponent } from './hello-form/hello-form.component';
-import { AngularLibraryModule } from 'angular-library'
+import { AngularLibraryModule } from 'angular-library';
+import { FormPageComponent } from './form-page/form-page.component';
+import { HomePageComponent } from './home-page/home-page.component'
+import { NameFormComponent } from './form-page/name-form/name-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HelloFormComponent,
+    FormPageComponent,
+    NameFormComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,
