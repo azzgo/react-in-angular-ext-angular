@@ -5,17 +5,18 @@ import {
   Injector,
   Input,
   OnInit,
+  Type,
   ViewContainerRef,
 } from '@angular/core';
-import RenderExt from './render-ext';
+import ReactNgWrapper from './react-ng-wrappers';
 import React from 'react';
 import ReactDom from 'react-dom';
 
 @Component({
-  selector: 'app-react-render-wrapper',
+  selector: 'lib-react-ng',
   template: '<div></div>',
 })
-export class ReactRenderWrapperComponent implements OnInit {
+export class ReactNgComponent implements OnInit {
   constructor(
     private el: ElementRef,
     private injector: Injector,
@@ -24,12 +25,12 @@ export class ReactRenderWrapperComponent implements OnInit {
   ) {}
 
   @Input()
-  ngComps: { [key: string]: Component };
+  ngComp: Type<any>;
 
   ngOnInit(): void {
     ReactDom.render(
-      React.createElement(RenderExt, {
-        ngComps: this.ngComps,
+      React.createElement(ReactNgWrapper, {
+        ngComp: this.ngComp,
         loadComponent: this.loadComponent.bind(this),
       }),
       this.el.nativeElement
@@ -43,7 +44,11 @@ export class ReactRenderWrapperComponent implements OnInit {
     const compRef = this.viewContainerRef.createComponent(compFactory);
     const compEl = (compRef?.hostView as any)?.rootNodes[0];
 
-    dom?.appendChild(compEl);
+    if (dom?.childNodes.length > 0) {
+      dom.replaceChild(compEl, dom.childNodes[0])
+    } else {
+      dom?.appendChild(compEl);
+    }
 
     return compRef;
   }

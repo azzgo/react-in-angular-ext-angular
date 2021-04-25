@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 
-export default function RenderExt({ngComps, loadComponent}) {
+export default function ReactNgWrapper({ngComp, loadComponent}) {
   const ref = React.useRef(null);
   useEffect(() => {
-    loadComponent(ngComps.hello, ref.current)
-  }, [ngComps])
+    loadComponent(ngComp, ref.current)
+  }, [ngComp])
   
   return (
     <div className="p-n" style={{border: "1px blue solid"}}>

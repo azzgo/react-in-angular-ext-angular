@@ -122,6 +122,46 @@
           }
         }
       }
+    },
+    "angular-library": {
+      "projectType": "library",
+      "root": "projects/angular-library",
+      "sourceRoot": "projects/angular-library/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/angular-library/tsconfig.lib.json",
+            "project": "projects/angular-library/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/angular-library/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/angular-library/src/test.ts",
+            "tsConfig": "projects/angular-library/tsconfig.spec.json",
+            "karmaConfig": "projects/angular-library/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/angular-library/tsconfig.lib.json",
+              "projects/angular-library/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "react-in-angular-ext-angular"
