@@ -1,12 +1,11 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
     "jsx": "react",
     "paths": {
-      "angular-library": [
-        "dist/angular-library/angular-library",
-        "dist/angular-library"
+      "lib": [
+        "dist/lib/angular-library",
+        "dist/lib"
       ]
     },
     "baseUrl": "./",

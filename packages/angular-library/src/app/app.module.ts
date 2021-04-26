@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AngularLibraryModule } from 'angular-library';
+import { LibraryModule } from 'lib';
 import { FormPageComponent } from './form-page/form-page.component';
 import { HomePageComponent } from './home-page/home-page.component'
 import { NameFormComponent } from './form-page/name-form/name-form.component';
@@ -18,7 +18,7 @@ import { NameFormComponent } from './form-page/name-form/name-form.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularLibraryModule
+    LibraryModule
   ],
   providers: [],
   bootstrap: [AppComponent]

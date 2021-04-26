@@ -12,4 +12,4 @@ import { ReactNgComponent } from './react-ng/react-ng.component'
     ReactNgComponent
   ]
 })
-export class AngularLibraryModule { }
+export class LibraryModule { }
