@@ -1,0 +1,25 @@
+.p1 {
+  padding: 5px;
+  border: 1px solid blue;
+}
+
+.p2 {
+  padding: 10px;
+  border: 1px solid orange;
+}
+
+.p3 {
+  padding: 15px;
+  border: 1px solid lightgreen;
+}
+
+.p4 {
+  padding: 20px;
+  border: 1px solid red;
+}
+
+.p5 {
+  padding: 25px;
+  border: 1px solid purple;
+}
+
