@@ -1,15 +1,33 @@
-import React, { useEffect } from "react";
+import { ComponentRef } from "@angular/core";
+import React, { useEffect, useRef, useMemo } from "react";
+import { ExtMounter } from "react-library";
 
-export default function ReactNgWrapper({ngComp, loadComponent}) {
-  const ref = React.useRef(null);
+const ExtendCompNgWrapper = (ngComp, loadComponent) => ({
+  control,
+  onChange,
+}) => {
+  const domRef = useRef(null);
+
   useEffect(() => {
-    loadComponent(ngComp, ref.current)
-  }, [ngComp])
-  
+    loadComponent(ngComp, domRef.current, function (compRef) {
+      compRef.instance.control = control;
+      compRef.instance.onChange = onChange;
+    });
+  }, [control]);
+
+  return <div ref={domRef}></div>;
+};
+
+export default function ReactNgWrapper({ ngComps, loadComponent }) {
+  const extras = useMemo(() => {
+    return ngComps?.map((ngComp) => ExtendCompNgWrapper(ngComp, loadComponent)) || [];
+  }, [ngComps]);
   return (
-    <div className="p-n" style={{border: "1px blue solid"}}>
+    <div className="p-n" style={{ border: "1px blue solid" }}>
       <h4>React Component</h4>
-      <div ref={ref}></div>
+      <div>
+        <ExtMounter extendCompList={extras} />
+      </div>
     </div>
-  )
+  );
 }

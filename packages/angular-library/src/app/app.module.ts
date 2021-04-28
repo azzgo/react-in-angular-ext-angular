@@ -7,6 +7,7 @@ import { LibraryModule } from 'lib';
 import { FormPageComponent } from './form-page/form-page.component';
 import { HomePageComponent } from './home-page/home-page.component'
 import { NameFormComponent } from './form-page/name-form/name-form.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NameFormComponent } from './form-page/name-form/name-form.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LibraryModule
+    LibraryModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

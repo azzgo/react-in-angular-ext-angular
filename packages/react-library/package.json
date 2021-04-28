@@ -11,6 +11,9 @@
   "engines": {
     "node": ">=10"
   },
+  "publishConfig": {
+    "directory": "dist"
+  },
   "scripts": {
     "build": "microbundle-crl -no-css-modules --no-compress --format modern,cjs",
     "start": "microbundle-crl -no-css-modules watch --no-compress --format modern,cjs",

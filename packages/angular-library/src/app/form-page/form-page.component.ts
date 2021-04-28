@@ -8,7 +8,7 @@ import {NameFormComponent} from './name-form/name-form.component';
   styleUrls: ['./form-page.component.scss']
 })
 export class FormPageComponent implements OnInit {
-  comp = NameFormComponent;
+  comps = [NameFormComponent, NameFormComponent];
 
   constructor() { }
 

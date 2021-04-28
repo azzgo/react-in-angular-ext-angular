@@ -48,3 +48,8 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+
+# lock file
+**/yarn.lock
+**/package-lock.json

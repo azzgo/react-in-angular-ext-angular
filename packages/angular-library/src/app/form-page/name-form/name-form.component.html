@@ -1,4 +1,5 @@
-<p class="p-n" style="border: 1px orange solid;">
+<div class="p-n" style="border: 1px orange solid;">
   <label>name:</label>
-  <input name="name" />
-</p>
+  <input name="name" [value]="control.value" (change)="handleInputChange($event)" />
+  <div>value: {{control.value}}</div>
+</div>
