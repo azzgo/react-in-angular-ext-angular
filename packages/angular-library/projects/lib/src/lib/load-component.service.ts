@@ -2,7 +2,6 @@ import {
   ComponentFactoryResolver,
   ComponentRef,
   Injectable,
-  Injector,
   Type,
   ViewContainerRef,
 } from '@angular/core';
@@ -10,7 +9,6 @@ import {
 @Injectable({ providedIn: 'root' })
 export class LoadComponentService {
   constructor(
-    private injector: Injector,
     private componentFactoryResolver: ComponentFactoryResolver
   ) {}
 
