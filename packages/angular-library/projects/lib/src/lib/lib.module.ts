@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import {LoadComponentService} from './load-component.service';
 import { ReactNgComponent } from './react-ng/react-ng.component'
 
 
@@ -6,10 +7,14 @@ import { ReactNgComponent } from './react-ng/react-ng.component'
   declarations: [
     ReactNgComponent
   ],
-  imports: [
-  ],
   exports: [
     ReactNgComponent
+  ],
+  entryComponents: [
+    ReactNgComponent
+  ],
+  providers: [
+    LoadComponentService,
   ]
 })
 export class LibraryModule { }

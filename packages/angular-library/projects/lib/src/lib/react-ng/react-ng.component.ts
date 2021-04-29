@@ -12,6 +12,7 @@ import {
 import ReactNgWrapper from './react-ng-wrappers';
 import React from 'react';
 import ReactDom from 'react-dom';
+import {LoadComponentService} from '../load-component.service';
 
 @Component({
   selector: 'lib-react-ng',
@@ -20,50 +21,21 @@ import ReactDom from 'react-dom';
 export class ReactNgComponent implements OnInit {
   constructor(
     private el: ElementRef,
-    private injector: Injector,
     private viewContainerRef: ViewContainerRef,
-    private componentFactoryResolver: ComponentFactoryResolver
+    private loadComponentService: LoadComponentService,
   ) {}
 
   @Input()
   ngComps: Type<any>[];
 
   ngOnInit(): void {
+    const loadComponent = this.loadComponentService.loadComponent(this.viewContainerRef)
     ReactDom.render(
       React.createElement(ReactNgWrapper, {
         ngComps: this.ngComps,
-        loadComponent: this.loadComponent.bind(this),
+        loadComponent: loadComponent.bind(this.loadComponentService),
       }),
       this.el.nativeElement
     );
-  }
-
-  _cacheCompRefs = new WeakMap();
-
-  private loadComponent(
-    comp: Component,
-    dom: Element,
-    callback?: (compRef: ComponentRef<any>) => void
-  ) {
-    let compRef: ComponentRef<any> = null 
-    if (dom?.childNodes.length === 0) {
-      const compFactory = this.componentFactoryResolver.resolveComponentFactory(
-        comp as any
-      );
-      const compRef = this.viewContainerRef.createComponent(compFactory);
-      const compEl = (compRef?.hostView as any)?.rootNodes[0];
-      this._cacheCompRefs.set(compEl, compRef)
-
-      callback && callback(compRef);
-
-      dom?.appendChild(compEl);
-    } else if (dom?.childNodes.length > 0) {
-      compRef = this._cacheCompRefs.get(dom.childNodes[0])
-      callback && callback(compRef);
-      compRef.changeDetectorRef.markForCheck()
-      compRef.changeDetectorRef.detectChanges()
-    }
-
-    return compRef;
   }
 }
