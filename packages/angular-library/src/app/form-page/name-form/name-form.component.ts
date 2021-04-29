@@ -3,7 +3,6 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 @Component({
   selector: 'app-name-form',
   templateUrl: './name-form.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NameFormComponent implements OnInit {
 
@@ -16,9 +15,6 @@ export class NameFormComponent implements OnInit {
 
   @Input()
   onChange: (val) => void
-
-
-  testValue = "hello name"
 
 
   ngOnInit(): void {
