@@ -5,7 +5,7 @@ import {NameFormComponent} from './name-form/name-form.component';
 @Component({
   selector: 'app-form-page',
   templateUrl: './form-page.component.html',
-  styleUrls: ['./form-page.component.scss']
+  styleUrls: []
 })
 export class FormPageComponent implements OnInit {
   comps = [NameFormComponent, NameFormComponent];
