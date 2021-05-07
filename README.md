@@ -3,4 +3,4 @@
 
 The mechanism diagram of the Solution
 
-![Diagram](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/azzgo/react-in-angular-ext-angular/mono-repo/diagram.txt)
+![Diagram](https://user-images.githubusercontent.com/5636512/117467990-d2ad8e00-af86-11eb-950c-35e1b08de755.png)
