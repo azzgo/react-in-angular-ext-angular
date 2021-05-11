@@ -5,7 +5,8 @@ import {
   ElementRef,
   Injector,
   Input,
-  OnInit,
+  OnChanges,
+  SimpleChanges,
   Type,
   ViewContainerRef,
 } from '@angular/core';
@@ -18,7 +19,7 @@ import {LoadComponentService} from '../load-component.service';
   selector: 'lib-react-ng',
   template: '<div></div>',
 })
-export class ReactNgComponent implements OnInit {
+export class ReactNgComponent implements OnChanges {
   constructor(
     private el: ElementRef,
     private viewContainerRef: ViewContainerRef,
@@ -28,14 +29,16 @@ export class ReactNgComponent implements OnInit {
   @Input()
   ngComps: Type<any>[];
 
-  ngOnInit(): void {
-    const loadComponent = this.loadComponentService.loadComponent(this.viewContainerRef)
-    ReactDom.render(
-      React.createElement(ReactNgWrapper, {
-        ngComps: this.ngComps,
-        loadComponent: loadComponent.bind(this.loadComponentService),
-      }),
-      this.el.nativeElement
-    );
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.ngComps) {
+      const loadComponent = this.loadComponentService.loadComponent(this.viewContainerRef)
+      ReactDom.render(
+        React.createElement(ReactNgWrapper, {
+          ngComps: this.ngComps,
+          loadComponent: loadComponent.bind(this.loadComponentService),
+        }),
+        this.el.nativeElement
+      );
+    }
   }
 }

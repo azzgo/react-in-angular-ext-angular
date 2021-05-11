@@ -5,9 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LibraryModule } from 'lib';
 import { FormPageComponent } from './form-page/form-page.component';
-import { HomePageComponent } from './home-page/home-page.component'
+import { HomePageComponent } from './home-page/home-page.component';
 import { NameFormComponent } from './form-page/name-form/name-form.component';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,13 +16,8 @@ import {FormsModule} from '@angular/forms';
     NameFormComponent,
     HomePageComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    LibraryModule,
-    FormsModule,
-  ],
+  imports: [BrowserModule, AppRoutingModule, LibraryModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

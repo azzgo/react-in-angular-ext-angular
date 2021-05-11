@@ -15,4 +15,8 @@ export class FormPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  addNameForm()  {
+    this.comps = [...this.comps, NameFormComponent]
+  }
+
 }

@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "ng:lib:build": "lerna run lib:build:prod --scope=angular-library",
-    "ng:serve": "lerna run serve --scope=angular-library",
+    "ng:serve": "lerna run serve --scope=angular-library --stream",
     "ng:lib:watch": "lerna run lib:build -- --watch --scope=angular-library",
     "bootstrap": "lerna bootstrap"
   },
