@@ -14,4 +14,4 @@ yarn ng:lib:build
 
 The mechanism diagram of the Solution
 
-![Diagram](./mechanism.png)
+![Diagram](./diagram/mechanism.png)
