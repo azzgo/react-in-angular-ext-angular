@@ -8,28 +8,33 @@ import {
 
 @Injectable({ providedIn: 'root' })
 export class LoadComponentService {
-  constructor(
-    private componentFactoryResolver: ComponentFactoryResolver
-  ) {}
+  private _viewRefMap = new WeakMap<Element, ViewContainerRef>();
+  constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
 
-
-  loadComponent(
-    viewContainerRef: ViewContainerRef,
-  ) {
-
+  loadComponent(viewContainerRef: ViewContainerRef) {
     const _cacheCompRefs = new WeakMap();
+    const rootDOM: Element = viewContainerRef.element.nativeElement;
+    rootDOM.setAttribute('data-key', 'riaxa-container');
+    this._viewRefMap.set(rootDOM, viewContainerRef);
 
-    return function(
+    return function (
       comp: Type<any>,
       dom: Element,
       callback?: (compRef: ComponentRef<any>) => void
     ) {
       let compRef: ComponentRef<any> = null;
       if (dom?.childNodes.length === 0) {
-        const compFactory = this.componentFactoryResolver.resolveComponentFactory(
-          comp as any
-        );
-        const compRef = viewContainerRef.createComponent(compFactory);
+        const compFactory =
+          this.componentFactoryResolver.resolveComponentFactory(comp as any);
+
+        // not support IE, need noticed
+        const viewRef = this._viewRefMap.get(dom.closest('[data-key="riaxa-container"]'));
+
+        if (!viewRef) {
+          throw new Error('[Angular-library] viewRef is not existed!')
+        }
+
+        const compRef = viewRef.createComponent(compFactory);
         const compEl = (compRef?.hostView as any)?.rootNodes[0];
         _cacheCompRefs.set(compEl, compRef);
 
@@ -44,6 +49,6 @@ export class LoadComponentService {
       }
 
       return compRef;
-    }
+    };
   }
 }
