@@ -1,5 +1,7 @@
 # A Proof of Concept Repo for Multi Front-end Framework base a core extensiable SDK
 
+[Chinese Version](./README.cn.md)
+
 ## Why
 
 In our Project, we have a core SDK build with React which is a front low code page render. We need use the SDK support Mainstream front-end framework. 
