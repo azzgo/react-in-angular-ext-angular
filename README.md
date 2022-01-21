@@ -24,5 +24,7 @@ npm run bootstrap
 # Angular demo
 npm run angular:dmeo
 
+# Vue demo 
+npm run vue:demo
 ```
 
