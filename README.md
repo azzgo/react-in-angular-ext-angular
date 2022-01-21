@@ -1,22 +1,28 @@
-## MonoRepo for Vue/Angular Version wrap React library
+# A Proof of Concept Repo for Multi Front-end Framework base a core extensiable SDK
 
-The React Library is core library, And it can render the component which has {control, onChange} structure props pass as props to React Component.
+## Why
 
-The Angular/Vue Library use ReactDom Renderer to render React Core Component, and use Angular/vue Component Resolver to wrap ExtComponet which is write as Angular/Vue code.
+In our Project, we have a core SDK build with React which is a front low code page render. We need use the SDK support Mainstream front-end framework. 
+
+The SDK architecture likes below.
+
+![SDK Architecture](./diagram/SDK-architecture.png)
+
+You can see. If we want make the React based SDK can run in non-react projct. We have two challenges.
+
+1. Make UI Component run in non-react project: Simple, using React DOM mount in sepecific DOM is ok.
+2. Make Extended Component run in non-react projct: Logic is Simple, just wrap non-react Component as a Extended React Component. The harder part is how to wrap. Detail is in this POC projct code.
+
+![Extended non-react Component](./diagram/Extended-solution.png)
 
 ## Installation
 
 ```sh
-yarn install
-yarn bootstrap
+npm install
+npm run bootstrap
 
-// or maybe
-yarn ng:lib:build
-yarn vue:lib:build
+# Angular demo
+npm run angular:dmeo
+
 ```
 
-## Mechainsm
-
-The mechanism diagram of the Solution
-
-![Diagram](./diagram/mechanism.png)

@@ -2,9 +2,15 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "bootstrap": "lerna bootstrap"
+    "bootstrap": "pnpm install",
+    "angular:lib": "pnpm run lib:build --filter angular-library",
+    "angular:serve": "pnpm run serve --filter angular-library",
+    "react:build": "pnpm run build --filter react-library",
+    "vue:serve": "pnpm run serve --filter vue-library",
+    "angular:demo": "npm run react:build && npm run angular:lib && npm run angular:serve",
+    "vue:demo": "npm run react:build && npm run vue:serve"
   },
-  "devDependencies": {
-    "lerna": "^4.0.0"
+  "dependencies": {
+    "pnpm": "^6.27.1"
   }
 }
